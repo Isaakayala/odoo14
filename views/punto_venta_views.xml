@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Acción de ventana para el menú -->
+        <record id="punto_venta_action_window" model="ir.actions.act_window">
+            <field name="name">Easy Point of Sale</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">punto.venta</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        
+        <!-- Vista árbol para el modelo 'punto.venta' -->
+        <record id="punto_venta_view_tree" model="ir.ui.view">
+            <field name="name">Punto de Venta Tree</field>
+            <field name="model">punto.venta</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="order_number" string="Venta No."/>
+                    <field name="date"/>
+                    <field name="partner_id"/>
+                    <field name="total_amount"/>
+                </tree>
+            </field>
+        </record>
+                
+        <record id="seq_punto_venta_order" model="ir.sequence">
+            <field name="name">Número de Orden de Venta</field>
+            <field name="code">punto.venta.order</field>
+            <field name="padding">4</field>
+        </record>
+        
+        <!-- Menú principal para Easy POS -->
+        <menuitem name="Easy POS" id="punto_venta_base_menu"/>
+        
+        <!-- Submenú vinculado al menú 'Easy POS' -->
+        <menuitem name="Punto de Venta Facilito" id="punto_venta_menu_item" parent="punto_venta_base_menu" action="punto_venta_action_window"/>
+    </data>
+</odoo>

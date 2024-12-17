@@ -1,0 +1,31 @@
+<odoo>
+    <record id="view_punto_venta_payment_form" model="ir.ui.view">
+        <field name="name">punto.venta.payment.form</field>
+        <field name="model">account.payment</field>
+        <field name="arch" type="xml">
+            <form string="Registro de Pago">
+                <sheet>
+                    <group>
+                        <field name="venta_id" readonly="1"/>
+                        <field name="amount"/>
+                        <field name="payment_date"/>
+                        <field name="payment_method_id"/>
+                        <field name="journal_id" required="1"/>
+                    </group>
+                </sheet>
+                <footer>
+                    <button string="Confirmar Pago" type="object" name="action_post" class="btn-primary"/>
+                    <button string="Cancelar" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_punto_venta_payment" model="ir.actions.act_window">
+        <field name="name">Pagos de Ventas</field>
+        <field name="res_model">account.payment</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_punto_venta_payment" name="Pagos de Ventas" parent="your_parent_menu_id" action="action_punto_venta_payment"/>
+</odoo>

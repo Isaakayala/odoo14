@@ -4,7 +4,7 @@
 	'name': "Easy POS, Punto de venta facil",    
 	'summary': "Punto de venta basico para tiendas",   
 	'author': 'Isaac Ayala',
-	'maintainer': 'Yo merengues',
+	'maintainer': 'Other Maintainer',
 	'license': "Other proprietary",
 	'depends': ['base','product','stock'],
 	'data': [
